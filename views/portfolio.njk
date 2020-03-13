@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Portfólio - Iury Santiago</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="wrapper">
+        <h1>Portfólio</h1>
+    </div>
+
+    <section class="cards">
+
+        {% for item in items %}
+            <div class="card" id="{{item.id}}">
+                <div class="card_image_container {{ 'featured_wrapper' if item.featured }}">
+                    <img src="https://img.youtube.com/vi/{{item.id}}/hqdefault.jpg" alt="imagem de {{item.tittle}}">
+                    {%if item.featured %}
+                        <div class="featured">Novidade</div>
+                    {% endif %}
+                </div>
+                <div class="card_content">
+                    <p>{{item.tittle}}</p>
+                </div>
+                <div class="card_info">
+                    <p>{{item.duration}}</p>
+                    <p class="card_price">{{item.price}}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+    <div id="warning">
+        <h3>Atenção: todos os videos utilizados nessa página são de autória do canal Joeveno. Sendo utilizados apenas para visualização.</h3>
+    </div>
+
+    <script src="/scripts.js"></script>
+
+{% endblock %}
